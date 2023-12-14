@@ -7,14 +7,14 @@ function fazPost(url, body) {
     request.send(JSON.stringify(body))
 
     request.onload = function () {
-        console.log(this.responseText)
+      console.log(this.responseText)
     }
 
     return request.responseText
-}
+  }
 
 
-function cadastraUsuario() {
+  function cadastraUsuario() {
     event.preventDefault()
     let url = "https://argic.cvcrm.com.br/api/cvio/lead"
 
@@ -33,14 +33,20 @@ function cadastraUsuario() {
 
     body = {
 
-        "nome": nome,
-        "email": email,
-        "telefone": telefone,
-        "empreendimento": empreendimento,
-        "motivo": motivo
+      "nome": nome,
+      "email": email,
+      "telefone": telefone,
+      "empreendimento": empreendimento,
+      "motivo": motivo
 
 
     }
 
     fazPost(url, body)
-}
+    alert("Formulário enviado com sucesso!");
+    //location.reload();
+    setTimeout(() => { location.reload(); }, 1000);
+
+  }
+
+
